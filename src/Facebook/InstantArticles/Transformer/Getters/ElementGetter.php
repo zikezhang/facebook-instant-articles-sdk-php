@@ -33,7 +33,7 @@ class ElementGetter extends AbstractGetter
     {
         $domXPath = new \DOMXPath($node->ownerDocument);
         $converter = new CssSelectorConverter();
-        $xpath = $converter->toXPath($selector);
+        $xpath = $converter->toXPath($selector === null ? "" : $selector);
         return $domXPath->query($xpath, $node);
     }
 
