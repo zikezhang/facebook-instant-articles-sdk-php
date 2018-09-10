@@ -617,8 +617,8 @@ class Transformer
     public function loadAnalyicsConfiguration($analyticsSettings)
     {
         $this->analyticsSettings = new AnalyticsSettings(
-            $analyticsSettings['fb_pixel_id'],
-            $analyticsSettings['raw_html']
+            isset($analyticsSettings['fb_pixel_id']) ? $analyticsSettings['fb_pixel_id'] : '',
+            isset($analyticsSettings['raw_html']) ? $analyticsSettings['raw_html'] : ''
         );
     }
 }
