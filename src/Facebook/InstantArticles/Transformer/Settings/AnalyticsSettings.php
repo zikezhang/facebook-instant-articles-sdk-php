@@ -68,10 +68,11 @@ class AnalyticsSettings
                   "'https://connect.facebook.net/en_US/fbevents.js'); ".
                   "fbq('init', '$this->fbPixelId'); ".
                   "fbq('track', 'PageView'); ".
-                "</script> ".
-                "<noscript><img height=\"1\" width=\"1\" style=\"display:none\" ".
-                  "src=\"https://www.facebook.com/tr?ev=PageView&noscript=1&id=$this->fbPixelId\" ".
-                "/></noscript> ".
+                  "fbq('track', 'ViewContent', {".
+                    "title: ia_document.title, ".
+                    "platform: 'InstantArticles'".
+                  "});".
+                "</script>".
                 "<!-- End Facebook Pixel Code -->";
         }
 
