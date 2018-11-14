@@ -94,7 +94,7 @@ class ImageTest extends BaseHTMLTestCase
                 ->enableLike();
 
         $expected =
-            '<figure data-feedback="fb:likes">'.
+            '<figure>'.
                 '<img src="https://jpeg.org/images/jpegls-home.jpg"/>'.
                 '<figcaption>Some caption to the image</figcaption>'.
             '</figure>';
@@ -115,7 +115,7 @@ class ImageTest extends BaseHTMLTestCase
                 ->enableComments();
 
         $expected =
-            '<figure data-feedback="fb:comments">'.
+            '<figure>'.
                 '<img src="https://jpeg.org/images/jpegls-home.jpg"/>'.
                 '<figcaption>Some caption to the image</figcaption>'.
             '</figure>';
@@ -137,7 +137,7 @@ class ImageTest extends BaseHTMLTestCase
               ->enableComments();
 
         $expected =
-            '<figure data-feedback="fb:likes,fb:comments">'.
+            '<figure>'.
                 '<img src="https://jpeg.org/images/jpegls-home.jpg"/>'.
                 '<figcaption>Some caption to the image</figcaption>'.
             '</figure>';
@@ -159,7 +159,7 @@ class ImageTest extends BaseHTMLTestCase
               ->enableComments();
 
         $expected =
-            '<figure data-feedback="fb:likes,fb:comments">'.
+            '<figure>'.
                 '<img src="https://jpeg.org/images/jpegls-home.jpg?width=100&height=200"/>'.
                 '<figcaption>Some caption to the image</figcaption>'.
             '</figure>';

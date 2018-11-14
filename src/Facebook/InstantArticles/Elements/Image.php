@@ -41,16 +41,6 @@ class Image extends Audible
     const NON_INTERACTIVE = 'non-interactive';
 
     /**
-     * @var boolean marks if any created image will have likes enabled by default
-     */
-    public static $defaultLikeEnabled = false;
-
-    /**
-     * @var boolean marks if any created image will have comments enabled by default
-     */
-    public static $defaultCommentEnabled = false;
-
-    /**
      * @var Caption The caption for Image
      */
     private $caption;
@@ -60,16 +50,6 @@ class Image extends Audible
      * on the article
      */
     private $url;
-
-    /**
-     * @var bool Tells if like is enabled. Default: false
-     */
-    private $isLikeEnabled;
-
-    /**
-     * @var bool Tells if comments are enabled. Default: false
-     */
-    private $isCommentsEnabled;
 
     /**
      * @var string The picture size for the video.
@@ -96,8 +76,6 @@ class Image extends Audible
      */
     private function __construct()
     {
-        $this->isLikeEnabled = self::$defaultLikeEnabled;
-        $this->isCommentsEnabled = self::$defaultCommentEnabled;
     }
 
     /**
@@ -169,41 +147,37 @@ class Image extends Audible
 
     /**
      * Makes like enabled for this image.
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function enableLike()
     {
-        $this->isLikeEnabled = true;
-
         return $this;
     }
 
     /**
      * Makes like disabled for this image.
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function disableLike()
     {
-        $this->isLikeEnabled = false;
-
         return $this;
     }
 
     /**
      * Makes comments enabled for this image.
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function enableComments()
     {
-        $this->isCommentsEnabled = true;
-
         return $this;
     }
 
     /**
      * Makes comments disabled for this image.
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function disableComments()
     {
-        $this->isCommentsEnabled = false;
-
         return $this;
     }
 
@@ -257,18 +231,20 @@ class Image extends Audible
 
     /**
      * @return boolean tells if the like button is enabled
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function isLikeEnabled()
     {
-        return $this->isLikeEnabled;
+        return false;
     }
 
     /**
      * @return boolean tells if the comments widget is enabled
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function isCommentsEnabled()
     {
-        return $this->isCommentsEnabled;
+        return false;
     }
 
     /**
@@ -313,17 +289,6 @@ class Image extends Audible
         }
 
         $element = $document->createElement('figure');
-
-        // Like/comments markup optional
-        if ($this->isLikeEnabled || $this->isCommentsEnabled) {
-            if ($this->isLikeEnabled && $this->isCommentsEnabled) {
-                $element->setAttribute('data-feedback', 'fb:likes,fb:comments');
-            } elseif ($this->isLikeEnabled) {
-                $element->setAttribute('data-feedback', 'fb:likes');
-            } else {
-                $element->setAttribute('data-feedback', 'fb:comments');
-            }
-        }
 
         // Presentation
         if ($this->presentation) {
@@ -393,10 +358,10 @@ class Image extends Audible
      * WARNING this is not Thread-safe, so if you are using pthreads or any other multithreaded engine,
      * this might not work as expected. (you will need to set this in all working threads manually)
      * @param boolean $enabled inform true to enable likes on images per default or false to disable like on images.
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public static function setDefaultLikeEnabled($enabled)
     {
-        self::$defaultLikeEnabled = $enabled;
     }
 
     /**
@@ -405,9 +370,9 @@ class Image extends Audible
      * WARNING this is not Thread-safe, so if you are using pthreads or any other multithreaded engine,
      * this might not work as expected. (you will need to set this in all working threads manually)
      * @param boolean $enabled inform true to enable comments on images per default or false to disable commenting on images.
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public static function setDefaultCommentEnabled($enabled)
     {
-        self::$defaultCommentEnabled = $enabled;
     }
 }
