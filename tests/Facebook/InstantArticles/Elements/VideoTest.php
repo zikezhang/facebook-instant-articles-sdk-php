@@ -148,7 +148,7 @@ class VideoTest extends BaseHTMLTestCase
                 ->enableLike();
 
         $expected =
-            '<figure data-feedback="fb:likes">'.
+            '<figure>'.
                 '<video>'.
                     '<source src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4"/>'.
                 '</video>'.
@@ -171,7 +171,7 @@ class VideoTest extends BaseHTMLTestCase
                 ->enableComments();
 
         $expected =
-            '<figure data-feedback="fb:comments">'.
+            '<figure>'.
                 '<video>'.
                     '<source src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4"/>'.
                 '</video>'.
@@ -195,7 +195,7 @@ class VideoTest extends BaseHTMLTestCase
                 ->enableComments();
 
         $expected =
-            '<figure data-feedback="fb:likes,fb:comments">'.
+            '<figure>'.
                 '<video>'.
                     '<source src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4"/>'.
                 '</video>'.

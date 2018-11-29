@@ -465,11 +465,6 @@
                         "selector" : "img",
                         "attribute": "src"
                     },
-                    "image.like" : {
-                        "type" : "exists",
-                        "selector" : "figure[data-feedback*='fb:likes']",
-                        "attribute": "data-feedback"
-                    },
                     "aspect-fit": {
                         "type": "exists",
                         "selector" : "figure[data-mode=aspect-fit]"
@@ -485,11 +480,6 @@
                     "non-interactive": {
                         "type": "exists",
                         "selector" : "figure[data-mode=non-interactive]"
-                    },
-                    "image.comments" : {
-                        "type" : "exists",
-                        "selector" : "figure[data-feedback*='fb:comments']",
-                        "attribute": "data-feedback"
                     }
                 }
             },
@@ -533,16 +523,6 @@
                         "type": "exists",
                         "selector" : "video",
                         "attribute": "data-fb-disable-autoplay"
-                    },
-                    "video.like" : {
-                        "type" : "exists",
-                        "selector" : "figure[data-feedback*='fb:likes']",
-                        "attribute": "data-feedback"
-                    },
-                    "video.comments" : {
-                        "type" : "exists",
-                        "selector" : "figure[data-feedback*='fb:comments']",
-                        "attribute": "data-feedback"
                     }
                 }
             },

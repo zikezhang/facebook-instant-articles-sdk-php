@@ -70,13 +70,13 @@ class SlideshowTest extends BaseHTMLTestCase
 
         $expected =
             '<figure class="op-slideshow">'.
-                '<figure data-feedback="fb:likes">'.
+                '<figure>'.
                     '<img src="https://jpeg.org/images/jpegls-home.jpg"/>'.
                 '</figure>'.
-                '<figure data-feedback="fb:comments">'.
+                '<figure>'.
                     '<img src="https://jpeg.org/images/jpegls-home2.jpg"/>'.
                 '</figure>'.
-                '<figure data-feedback="fb:likes,fb:comments">'.
+                '<figure>'.
                     '<img src="https://jpeg.org/images/jpegls-home3.jpg"/>'.
                 '</figure>'.
             '</figure>';

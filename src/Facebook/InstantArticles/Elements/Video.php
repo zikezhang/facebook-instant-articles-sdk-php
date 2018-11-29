@@ -45,16 +45,6 @@ class Video extends Element implements ChildrenContainer
     const DATA_FADE = 'data-fade';
 
     /**
-     * @var boolean marks if any created image will have likes enabled by default
-     */
-    private static $defaultLikeEnabled = false;
-
-    /**
-     * @var boolean marks if any created image will have comments enabled by default
-     */
-    private static $defaultCommentEnabled = false;
-
-    /**
      * @var Caption The caption for Video
      */
     private $caption;
@@ -69,16 +59,6 @@ class Video extends Element implements ChildrenContainer
      * @var string The video content type. Default: "video/mp4"
      */
     private $contentType;
-
-    /**
-     * @var boolean Tells if like is enabled. Default: false
-     */
-    private $isLikeEnabled;
-
-    /**
-     * @var boolean Tells if comments are enabled. Default: false
-     */
-    private $isCommentsEnabled;
 
     /**
      * @var boolean Makes the video the cover on news feed.
@@ -124,8 +104,6 @@ class Video extends Element implements ChildrenContainer
 
     private function __construct()
     {
-        $this->isLikeEnabled = self::$defaultLikeEnabled;
-        $this->isCommentsEnabled = self::$defaultCommentEnabled;
     }
 
     /**
@@ -201,11 +179,10 @@ class Video extends Element implements ChildrenContainer
      * Makes like enabled for this video.
      *
      * @return $this
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function enableLike()
     {
-        $this->isLikeEnabled = true;
-
         return $this;
     }
 
@@ -213,11 +190,10 @@ class Video extends Element implements ChildrenContainer
      * Makes like disabled for this video.
      *
      * @return $this
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function disableLike()
     {
-        $this->isLikeEnabled = false;
-
         return $this;
     }
 
@@ -225,11 +201,10 @@ class Video extends Element implements ChildrenContainer
      * Makes comments enabled for this video.
      *
      * @return $this
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function enableComments()
     {
-        $this->isCommentsEnabled = true;
-
         return $this;
     }
 
@@ -237,11 +212,10 @@ class Video extends Element implements ChildrenContainer
      * Makes comments disabled for this video.
      *
      * @return $this
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function disableComments()
     {
-        $this->isCommentsEnabled = false;
-
         return $this;
     }
 
@@ -394,10 +368,11 @@ class Video extends Element implements ChildrenContainer
 
     /**
      * @return boolean tells if the like button is enabled
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function isLikeEnabled()
     {
-        return $this->isLikeEnabled;
+        return false;
     }
 
     /**
@@ -410,10 +385,11 @@ class Video extends Element implements ChildrenContainer
 
     /**
      * @return boolean tells if the comments widget is enabled
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public function isCommentsEnabled()
     {
-        return $this->isCommentsEnabled;
+        return false;
     }
 
     /**
@@ -451,10 +427,10 @@ class Video extends Element implements ChildrenContainer
      * WARNING this is not Thread-safe, so if you are using pthreads or any other multithreaded engine,
      * this might not work as expected. (you will need to set this in all working threads manually)
      * @param boolean $enabled inform true to enable likes on videos per default or false to disable like on videos.
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public static function setDefaultLikeEnabled($enabled)
     {
-        self::$defaultLikeEnabled = $enabled;
     }
 
     /**
@@ -463,10 +439,10 @@ class Video extends Element implements ChildrenContainer
      * WARNING this is not Thread-safe, so if you are using pthreads or any other multithreaded engine,
      * this might not work as expected. (you will need to set this in all working threads manually)
      * @param boolean $enabled inform true to enable comments on videos per default or false to disable commenting on videos.
+     * @deprecated This feature has been deprecated as InstantArticles doesn't support likes, comments and shares to individual media content.
      */
     public static function setDefaultCommentEnabled($enabled)
     {
-        self::$defaultCommentEnabled = $enabled;
     }
 
 
@@ -499,17 +475,6 @@ class Video extends Element implements ChildrenContainer
 
         if ($this->isFeedCover) {
             $element->setAttribute('class', 'fb-feed-cover');
-        }
-
-        // Like/comments markup optional
-        if ($this->isLikeEnabled || $this->isCommentsEnabled) {
-            if ($this->isLikeEnabled && $this->isCommentsEnabled) {
-                $element->setAttribute('data-feedback', 'fb:likes,fb:comments');
-            } elseif ($this->isLikeEnabled) {
-                $element->setAttribute('data-feedback', 'fb:likes');
-            } else {
-                $element->setAttribute('data-feedback', 'fb:comments');
-            }
         }
 
         // URL markup required
