@@ -478,6 +478,13 @@ class InstantArticle extends Element implements ChildrenContainer, InstantArticl
         return $this;
     }
 
+    public function getMetaProperty($property_name) {
+        if (array_key_exists($property_name, $this->metaProperties)) {
+            return $this->metaProperties[$property_name];
+        }
+        return null;
+    }
+
     public function render($doctype = '<!doctype html>', $format = false, $validate = true)
     {
         $doctype = is_null($doctype) ? '<!doctype html>' : $doctype;
