@@ -478,7 +478,8 @@ class InstantArticle extends Element implements ChildrenContainer, InstantArticl
         return $this;
     }
 
-    public function getMetaProperty($property_name) {
+    public function getMetaProperty($property_name)
+    {
         if (array_key_exists($property_name, $this->metaProperties)) {
             return $this->metaProperties[$property_name];
         }
