@@ -275,17 +275,16 @@ class Transformer
     /**
      * @param InstantArticle $context
      * @param \DOMNode $node
-     * @deprecated Use @see Transformer::transformString instead.
      *
      * @return mixed
      */
     public function transform($context, $node)
     {
-        $is_top_of_recursion_stack = false;
+        $is_first_run = false;
         if (Type::is($context, InstantArticle::getClassName()) && $context->getMetaProperty('op:generator:transformer') === null) {
             $context->addMetaProperty('op:generator:transformer', 'facebook-instant-articles-sdk-php');
             $context->addMetaProperty('op:generator:transformer:version', InstantArticle::CURRENT_VERSION);
-            $is_top_of_recursion_stack = true;
+            $is_first_run = true;
             $this->instantArticle = $context;
         }
 
@@ -374,8 +373,8 @@ class Transformer
             }
         }
 
-        if ($is_top_of_recursion_stack) {
-          $context = $this->handleTransformationSettings($context);
+        if ($is_first_run) {
+            $context = $this->handleTransformationSettings($context);
         }
 
         return $context;
