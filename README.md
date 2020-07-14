@@ -89,3 +89,8 @@ If you are encountering problems, the following tips may help in troubleshooting
 ## License
 
 Please see the [license file](https://github.com/facebook/facebook-instant-articles-sdk-php/blob/master/LICENSE) for more information.
+
+## Legal
+
+* [Privacy](https://opensource.facebook.com/legal/privacy/)
+* [Terms](https://opensource.facebook.com/legal/terms/)
